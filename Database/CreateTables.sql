@@ -1,7 +1,7 @@
 -- Script de creación de tablas basado en las entidades del proyecto
 -- Ejecutar en SQL Server (asegúrate de usar la base de datos correcta)
---CREATE DATABASE StudentDb;
-use  StudentDb
+--CREATE DATABASE StudentDb1;
+use  StudentDb1
 GO
 SET XACT_ABORT ON;
 GO
@@ -86,10 +86,7 @@ COMMIT TRANSACTION;
 GO
 
 -- Índices recomendados
-IF NOT EXISTS (SELECT 1 FROM sys.indexes WHERE name = 'IX_Subjects_ProfessorId' AND object_id = OBJECT_ID('dbo.Subjects'))
-BEGIN
-	CREATE INDEX IX_Subjects_ProfessorId ON dbo.Subjects(ProfessorId);
-END
+
 
 IF NOT EXISTS (SELECT 1 FROM sys.indexes WHERE name = 'IX_StudentSubjects_SubjectId' AND object_id = OBJECT_ID('dbo.StudentSubjects'))
 BEGIN
